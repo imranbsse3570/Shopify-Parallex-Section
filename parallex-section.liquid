@@ -1,0 +1,141 @@
+  <div class="mb_parallax_container" style="{% if section.settings.parallex_image != blank %} background-image: url({{ section.settings.parallex_image | img_url: '1600x1200' }}); {% else %} background-image: url(https://picsum.photos/1600/900/);
+  {% endif %}">
+      <div class="mb_parallax_overlay">
+        <div class="mb_parallax_overlay_inner">
+          <div style="width: 100%;">
+          {% if section.settings.parallex_heading != blank %}
+            <h1 class="custom-parallex-heading">
+              {{section.settings.parallex_heading}}
+            </h1>
+          {% endif %}
+
+          {% if section.settings.parallex_details != blank %} 
+            <p class="custom-parallex-details">
+              {{section.settings.parallex_details}}
+            </p>
+          {% endif %}
+
+          {% if section.settings.parallex_url != blank %}
+            <a class="custom-parallex-url" href="{{ section.settings.parallex_url }}">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1"
+                x="0px" y="0px" viewBox="0 0 512 512" style="fill: #fff;" xml:space="preserve">
+                <g>
+                  <g>
+                    <path
+                      d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068    c-7.792,7.829-7.762,20.492,0.067,28.284L443.558,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h423.557    l-70.162,69.824c-7.829,7.792-7.859,20.455-0.067,28.284c7.793,7.831,20.457,7.858,28.285,0.068l104.504-104    c0.006-0.006,0.011-0.013,0.018-0.019C513.968,262.339,513.943,249.635,506.134,241.843z" />
+                  </g>
+                </g>
+              </svg>
+            </a>
+          {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .custom-parallex-heading {
+        color: white;
+        font-size: 109px;
+        text-align: center;
+      }
+
+      .custom-parallex-details {
+        text-align: center;
+        font-size: 19px;
+        margin-left: 0;
+        margin-bottom: 0;
+        margin-top: 0;
+        color: #fff;
+        font-weight: 700;
+      }
+
+      .custom-parallex-url {
+        width: 50px;
+        height: auto;
+        font-size: 0px;
+        margin-top: 16px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      @media only screen and (max-width: 767px) {
+        .custom-parallex-heading {
+          font-size: 70px;
+        }
+
+        .custom-parallex-details {
+          font-size: 15px;
+        }
+      }
+
+      .mb_parallax_container {
+        height: 650px;
+        width: 100%;
+        padding-top: 5%;
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-bottom: 30px;
+        margin-top: 30px;
+      }
+
+      .mb_parallax_overlay_inner {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+      }
+
+      .mb_parallax_overlay {
+        height: 90%;
+        width: 90%;
+        margin: auto;
+        background-color: transparent;
+        opacity: .9;
+        text-align: center;
+      }
+    </style>
+
+{% schema %}
+  {
+    "name": "Parallex Section",
+    "class": "index-section shopify-section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "parallex_image",
+            "label": "Parallex Background Image"
+        },
+        {
+            "type": "text",
+            "id": "parallex_heading",
+            "label": "Parallex Overlay Heading",
+            "default": "Lorem Ipsum"
+        },
+        {
+            "type": "text",
+            "id": "parallex_details",
+            "label": "Parallex Overlay Details",
+            "default": "Lorem Ipsum"
+        },
+        {
+            "type": "url",
+            "id": "parallex_url",
+            "label": "Parallex Overlay url"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Parallex Section",
+            "category": "Custom Section"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
